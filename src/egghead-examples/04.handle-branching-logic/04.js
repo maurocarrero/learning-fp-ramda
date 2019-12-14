@@ -1,9 +1,9 @@
-import R from "ramda";
+import R from 'ramda';
 
 // Conditional functions
 // ifElse, when
 
-const priceLens = R.lensProp("price");
+const priceLens = R.lensProp('price');
 const applyDiscount = R.curry(
   (percentage, amount) => amount - amount * (percentage / 100)
 );
@@ -16,8 +16,8 @@ const applyDiscount = R.curry(
 // );
 
 // Using when
-const adjustPrice = R.unless(
-  R.propEq("category", "clothes"),
+const adjustPrice = R.when(
+  R.propEq('category', 'clothes'),
   R.over(priceLens, applyDiscount(50))
 );
 
